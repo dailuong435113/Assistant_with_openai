@@ -192,7 +192,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ---
 
-If you have any questions or encounter any issues, please contact me at [email@example.com].
+If you have any questions or encounter any issues, please contact me at [dai435113@gmail.com].
 ```
 
 Ensure you replace `"Your_OpenAI_API_Key"` and `"Your_Assistant_ID"` with your actual information in the `.env` file for Docker deployment.
