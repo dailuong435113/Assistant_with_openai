@@ -1,6 +1,3 @@
-Here's the `README.md` file for your project in English:
-
-```markdown
 # Civil Law Assistant
 
 Civil Law Assistant is a Streamlit application that utilizes the OpenAI API to provide assistance with civil law matters. The application allows users to input questions or requests related to civil law and receive responses from an AI assistant.
@@ -14,13 +11,13 @@ The project includes the following files and directories:
     - `secrets.toml` - File containing your OpenAI API key and Assistant ID.
   - `.gitignore` - Git configuration file to ignore unnecessary files.
   - `app.py` - Main source code of the Streamlit application.
-  - `docker-compose.yml` - Docker Compose configuration file (if needed).
+  - `docker-compose.yml` - Docker Compose configuration file.
   - `Dockerfile` - Dockerfile to build the Docker image of the application.
   - `requirements.txt` - List of required Python libraries for the project.
 
 ## System Requirements
 
-- Python 3.x
+- Python 3.10
 - OpenAI API Key
 - Streamlit
 
@@ -138,13 +135,64 @@ if user_input:
     st.text(result)
 ```
 
+## Docker Deployment
+
+To deploy the application using Docker, follow these steps:
+
+1. Build the Docker image:
+
+    ```bash
+    docker build -t civil-law-assistant .
+    ```
+
+2. Run the Docker container:
+
+    ```bash
+    docker run -p 8501:8501 --env-file .env civil-law-assistant
+    ```
+
+    Create a `.env` file in the root of your project with the following content:
+
+    ```env
+    OPENAI_API_KEY=Your_OpenAI_API_Key
+    ASSISTANT_ID=Your_Assistant_ID
+    ```
+
+3. Open a web browser and navigate to `http://localhost:8501` to access the application.
+
+## Docker Compose Deployment
+
+You can also deploy the application using Docker Compose:
+
+1. Ensure your `docker-compose.yml` file is properly configured:
+
+    ```yaml
+    version: '3.8'
+
+    services:
+      civil-law-assistant:
+        build: .
+        ports:
+          - "8501:8501"
+        env_file:
+          - .env
+    ```
+
+2. Run the application using Docker Compose:
+
+    ```bash
+    docker-compose up --build
+    ```
+
+3. Open a web browser and navigate to `http://localhost:8501` to access the application.
+
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ---
 
-If you have any questions or encounter any issues, please contact me at [dai435113@gmail.com].
+If you have any questions or encounter any issues, please contact me at [email@example.com].
 ```
 
-Ensure you replace `"Your OpenAI API KEY"` and `"Your Assistant ID"` with your actual information in the `secrets.toml` file.
+Ensure you replace `"Your_OpenAI_API_Key"` and `"Your_Assistant_ID"` with your actual information in the `.env` file for Docker deployment.
